@@ -32,11 +32,12 @@ jobs:
         uses: actions/checkout@v3
       - name: Setup Node
         uses: actions/setup-node@v3
+      - run: npm install
       - run: npm run build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          # Upload entire repository
+          # Upload output repository
           path: "./dist"
       - name: Deploy to GitHub Pages
         id: deployment
