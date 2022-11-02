@@ -36,15 +36,17 @@ jobs:
         with:
           node-version: 16
 
-      - run: |
-          npm ci
-          npm run build
+      - name: "Install Packages"
+        run: npm ci
+
+      - name: "Build"
+        run: npm run build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          # Upload output repository
           path: "./dist"
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
