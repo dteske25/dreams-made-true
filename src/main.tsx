@@ -1,9 +1,28 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App";
+import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
+import Error from "./components/Error";
+import { paths } from "./routes";
+import Admin from "./components/Admin";
+import Home from "./components/Home";
 
-ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
+const router = createBrowserRouter(
+  [
+    {
+      path: "/",
+      element: <Home />,
+      errorElement: <Error />,
+    },
+    {
+      path: paths.admin,
+      element: <Admin />,
+    },
+  ],
+  { basename: "/dreams-made-true" }
+);
+
+ReactDOM.createRoot(document.getElementById("page-top") as HTMLElement).render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
