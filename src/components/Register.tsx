@@ -71,7 +71,7 @@ const Register = () => (
           <p></p>
           <p>
             If you have any more questions or would like more information about
-            the registration process, please email
+            the registration process, please email{" "}
             <a href="mailto:register@dreams-made-true.org">
               register@dreams-made-true.org
             </a>

@@ -1,6 +1,26 @@
+import { clsx } from "clsx";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { Events as ScrollEvents, Link as ScrollLink, scrollSpy } from "react-scroll";
+
+import { paths } from "../routes";
+
+const scrollEvent = ScrollEvents.scrollEvent;
 const Navbar = () => {
+  const [scrollHeight, setScrollHeight] = useState<number>(0);
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      setScrollHeight(window.scrollY);
+    });
+  }, []);
+
   return (
-    <nav className="navbar navbar-custom navbar-fixed-top" role="navigation">
+    <nav
+      className={clsx("navbar", "navbar-custom", "navbar-fixed-top", {
+        "top-nav-collapse": scrollHeight > 50,
+      })}
+      role="navigation"
+    >
       <div className="container">
         <div className="navbar-header">
           <button
@@ -12,10 +32,9 @@ const Navbar = () => {
             <i className="fa fa-bars"></i>
           </button>
           <div className="navbar-brand">
-            <i className="fa fa-pause" id="play-button"></i>
-            <a className="page-scroll" href="#root">
-              <span className="light">Dreams Made True, Inc.</span>
-            </a>
+            <ScrollLink smooth spy to="root">
+              Dreams Made True, Inc.
+            </ScrollLink>
           </div>
         </div>
 
@@ -25,39 +44,34 @@ const Navbar = () => {
               <a href="#root"></a>
             </li>
             <li>
-              <a className="page-scroll" href="#announcements">
+              <ScrollLink activeClass="active" smooth spy to="announcements">
                 Announcements
-              </a>
+              </ScrollLink>
             </li>
             <li>
-              <a className="page-scroll" href="#about">
+              <ScrollLink activeClass="active" smooth spy to="about">
                 About
-              </a>
+              </ScrollLink>
             </li>
             <li>
-              <a className="page-scroll" href="#info">
+              <ScrollLink activeClass="active" smooth spy to="info">
                 Info
-              </a>
+              </ScrollLink>
             </li>
             <li>
-              <a className="page-scroll" href="#register">
+              <ScrollLink activeClass="active" smooth spy to="register">
                 Register
-              </a>
+              </ScrollLink>
             </li>
             <li>
-              <a className="page-scroll" href="#winners">
+              <ScrollLink activeClass="active" smooth spy to="winners">
                 Winners
-              </a>
+              </ScrollLink>
             </li>
             <li>
-              <a className="page-scroll" href="#photos">
-                Photos
-              </a>
-            </li>
-            <li>
-              <a className="page-scroll" href="#contact">
+              <ScrollLink activeClass="active" smooth spy to="contact">
                 Contact
-              </a>
+              </ScrollLink>
             </li>
           </ul>
         </div>

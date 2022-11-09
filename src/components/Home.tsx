@@ -1,19 +1,19 @@
-import { Link } from "react-router-dom";
-import { paths } from "../routes";
+import { Link } from "react-scroll";
+
 import About from "./About";
 import Announcements from "./Announcements";
 import Contact from "./Contact";
 import Info from "./Info";
+import Navbar from "./Navbar";
 import Photos from "./Photos";
 import Register from "./Register";
-import Navbar from "./Navbar";
 import Winners from "./Winners";
 
 const Home = () => {
   return (
-    <>
+    <div id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
       <Navbar />
-      <header className="intro">
+      <header className="intro" style={{ height: "100vh" }}>
         <div className="intro-body">
           <div className="container">
             <div className="row">
@@ -23,9 +23,14 @@ const Home = () => {
                   An organization dedicated to improving the lives of Iowa girls
                   with special needs.
                 </p>
-                <a href="#announcements" className="btn btn-circle page-scroll">
+                <Link
+                  smooth
+                  spy
+                  to="announcements"
+                  className="btn btn-circle page-scroll"
+                >
                   <i className="fa fa-angle-double-down animated"></i>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -37,7 +42,6 @@ const Home = () => {
       <Info />
       <Register />
       <Winners />
-      <Photos />
       <Contact />
       <footer>
         <div className="container text-center">
@@ -46,7 +50,7 @@ const Home = () => {
           </p>
         </div>
       </footer>
-    </>
+    </div>
   );
 };
 
