@@ -112,16 +112,16 @@ a:focus {
     background-color: transparent;
 }
 
-.navbar-custom .nav li.active {
+.navbar-custom .nav li a.active {
     outline: 0;
 }
 
-.navbar-custom .nav li.active a {
+.navbar-custom .nav li a.active  {
     background-color: #FF3399;
 }
 
-.navbar-custom .nav li.active a:hover {
-    color: #FF3399;
+.navbar-custom .nav li a.active:hover {
+    color: #600030;
 }
 
 @media(min-width:768px) {

@@ -1,11 +1,7 @@
 import { clsx } from "clsx";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { Events as ScrollEvents, Link as ScrollLink, scrollSpy } from "react-scroll";
+import { Link as ScrollLink } from "react-scroll";
 
-import { paths } from "../routes";
-
-const scrollEvent = ScrollEvents.scrollEvent;
 const Navbar = () => {
   const [scrollHeight, setScrollHeight] = useState<number>(0);
   useEffect(() => {
@@ -43,11 +39,11 @@ const Navbar = () => {
             <li className="hidden">
               <a href="#root"></a>
             </li>
-            <li>
+            {/* <li>
               <ScrollLink activeClass="active" smooth spy to="announcements">
                 Announcements
               </ScrollLink>
-            </li>
+            </li> */}
             <li>
               <ScrollLink activeClass="active" smooth spy to="about">
                 About

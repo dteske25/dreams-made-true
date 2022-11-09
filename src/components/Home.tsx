@@ -26,7 +26,7 @@ const Home = () => {
                 <Link
                   smooth
                   spy
-                  to="announcements"
+                  to="about"
                   className="btn btn-circle page-scroll"
                 >
                   <i className="fa fa-angle-double-down animated"></i>
@@ -36,8 +36,6 @@ const Home = () => {
           </div>
         </div>
       </header>
-
-      <Announcements />
       <About />
       <Info />
       <Register />
