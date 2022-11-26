@@ -17,8 +17,8 @@ const ContestantCategory: FunctionComponent<{
 };
 
 const Info = () => {
-  const dateRange = `${dayOne.toFormat("MMMM d")}-${dayTwo.toFormat(
-    "d, yyyy"
+  const dateRange = `${dayOne.format("MMMM Do")}-${dayTwo.format(
+    "Do, YYYY"
   )}`;
   return (
     <section id="info" className="content-section text-center">
@@ -33,22 +33,14 @@ const Info = () => {
             </p>
             <p>
               The fun will begin on{" "}
-              {dayOne.toLocaleString({
-                month: "long",
-                day: "numeric",
-                weekday: "long",
-              })}
+              {dayOne.format('MMMM Do')}
               , at 6:30 pm with check-in at the auditorium. We will have social
               time with snacks, giving the girls and their parents a chance to
               meet each other and their assigned buddies. We will also have a
               short rehearsal on Friday night.
             </p>
             <p>
-              {dayTwo.toLocaleString({
-                month: "long",
-                day: "numeric",
-                weekday: "long",
-              })}
+              On {dayTwo.format('MMMM Do')}
               , the girls will participate in a private interview session with a
               panel of judges. A pizza party along with special entertainment to
               amaze the girls will follow around noon. After lunch each

@@ -1,3 +1,5 @@
+import { registrationDate } from "../eventDates";
+
 const Register = () => (
   <section id="register" className="content-section text-center">
     <div className="register-section">
@@ -6,10 +8,9 @@ const Register = () => (
           <h2>Register</h2>
           <p>
             If you are an Iowa girl with special needs, you can be part of the
-            Dreams Made True, Inc. Pageant. Registration is preferred by June 1,
-            2021, along with the $50.00 registration fee. This fee covers all
+            Dreams Made True, Inc. Pageant. Registration is preferred by {registrationDate.format('MMMM Do, YYYY')}, along with the $50.00 registration fee. This fee covers all
             pageant events, meals, a t-shirt for the contestant, and two adult
-            tickets to the main event. Registrations received after June 1 are
+            tickets to the main event. Registrations received after {registrationDate.format('MMMM Do')} are
             not guaranteed a t-shirt or recognition in the program.
           </p>
           <a

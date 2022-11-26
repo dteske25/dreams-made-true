@@ -11,7 +11,7 @@ export const contestantCategories: IContestantCategory[] = [
     ageEnd: 9,
   },
   {
-    name: "Jr. Miss",
+    name: "Junior Miss",
     ageStart: 10,
     ageEnd: 14,
   },
@@ -26,7 +26,7 @@ export const contestantCategories: IContestantCategory[] = [
     ageEnd: 24,
   },
   {
-    name: "Sr. Miss",
+    name: "Senior Miss",
     ageStart: 25,
   },
 ];

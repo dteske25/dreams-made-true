@@ -94,7 +94,7 @@ const Winners = () => (
 
         <div className="row">
           <div className="col-md-6">
-            <h3>Jr. Miss Dreams Made True</h3>
+            <h3>Junior Miss Dreams Made True</h3>
             <p>Audrey Page</p>
           </div>
           <div className="col-md-6">

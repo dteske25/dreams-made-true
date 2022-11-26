@@ -5,6 +5,10 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Error from "./components/Error";
 import Home from "./components/Home";
 
+import dayjs from "dayjs";
+import advancedFormat from 'dayjs/plugin/advancedFormat';
+dayjs.extend(advancedFormat);
+
 const router = createBrowserRouter(
   [
     {
