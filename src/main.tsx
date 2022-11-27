@@ -12,16 +12,13 @@ import { themeOptions } from "./theme";
 import { SnackbarProvider } from "notistack";
 dayjs.extend(advancedFormat);
 
-const router = createBrowserRouter(
-  [
-    {
-      path: "/",
-      element: <Home />,
-      errorElement: <Error />,
-    },
-  ],
-  { basename: "/dreams-made-true" }
-);
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home />,
+    errorElement: <Error />,
+  },
+]);
 
 const theme = createTheme(themeOptions);
 
