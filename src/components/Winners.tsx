@@ -1,131 +1,116 @@
+import { Grid, GridProps, Typography, Divider } from "@mui/material";
+import { FunctionComponent, ReactNode } from "react";
+import Section from "./Section";
+
+import "./Winners.css";
+
+interface IWinnerProps {
+  category: ReactNode;
+  name: ReactNode;
+}
+
+const Winner: FunctionComponent<IWinnerProps & Partial<GridProps>> = ({
+  category,
+  name,
+  ...gridProps
+}) => {
+  return (
+    <Grid {...gridProps} item xs={12} md={6}>
+      <Typography variant='h5' textAlign='center'>
+        {category}
+      </Typography>
+      <Typography textAlign='center'>{name}</Typography>
+    </Grid>
+  );
+};
+
+const results: { [key: string]: IWinnerProps[] } = {
+  drawings: [
+    {
+      category: "Mom's Pedicure",
+      name: "Michelle Sandbulte",
+    },
+    { category: "Dad's Barbeque Set", name: "Jeremy Heinrichs" },
+    { category: "6-Pack I-Cubs Tickets", name: "Alivia Romesburg" },
+    { category: "Adventureland Tickets", name: "Mia Fine" },
+    { category: "4-Pack I-Cubs Tickets", name: "Emily Brown" },
+  ],
+  spirit: [{ category: "Spirit of DMT Award", name: "Sue Behrens-Hudson" }],
+  judges: [
+    { category: "Judge's Choice", name: "Brianna Moore" },
+    { category: "Judge's Choice", name: "Abby Heinrichs" },
+    { category: "Judge's Choice", name: "Becky Russell" },
+    { category: "Judge's Choice", name: "Paris Mulder" },
+  ],
+  special: [
+    { category: "Best Casual Wear", name: "Sheyanne Ackerson" },
+    { category: "Best Formal Wear", name: "Elizabeth Esdohr" },
+    { category: "Miss Congeniality", name: "Emily Brown" },
+    { category: "Miss Photogenic", name: "Alivia Romesburg" },
+    { category: "People's Choice", name: "Maddie Farrell" },
+  ],
+  littleMiss: [
+    { category: "Little Miss Dreams Made True", name: "Leighton Buckley" },
+    { category: "First Runner Up", name: "Gracie Kobold" },
+  ],
+  juniorMiss: [
+    { category: "Junior Miss Dreams Made True", name: "Audrey Page" },
+    { category: "First Runner Up", name: "Mia Fine" },
+  ],
+  teenMiss: [
+    { category: "Teen Miss Dreams Made True", name: "Furaha Vicent" },
+    { category: "First Runner Up", name: "Rachel Miller" },
+  ],
+  miss: [
+    { category: "Miss Dreams Made True", name: "Olivia Siepker" },
+    { category: "First Runner Up", name: "Christina Lampe" },
+  ],
+};
+
+interface IWinnerSectionProps {
+  sectionTitle: string;
+  winners: IWinnerProps[];
+}
+
+const WinnerSection: FunctionComponent<IWinnerSectionProps> = ({
+  sectionTitle,
+  winners,
+}) => {
+  return (
+    <Grid item container justifyContent='center' spacing={4}>
+      <Grid item xs={12}>
+        <Typography variant='h3' textAlign='center'>
+          {sectionTitle}
+        </Typography>
+      </Grid>
+      {winners.map((w, i) => (
+        <Winner key={i} category={w.category} name={w.name} />
+      ))}
+    </Grid>
+  );
+};
+
 const Winners = () => (
-  <section id="winners" className="content-section text-center">
-    <div className="winners-section">
-      <div className="container">
-        <h2>2019 Winners</h2>
-        <h3>Drawings</h3>
-        <div className="row">
-          <div className="col-md-offset-2 col-md-4">
-            <h4>Mom's Pedicure</h4>
-            <p>Michelle Sandbulte</p>
-          </div>
-          <div className="col-md-4">
-            <h4>Dad's Barbeque Set</h4>
-            <p>Jeremy Heinrichs</p>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-md-4">
-            <h4>6-Pack I-Cubs Tickets</h4>
-            <p>Alivia Romesburg</p>
-          </div>
-          <div className="col-md-4">
-            <h4>Adventureland Tickets</h4>
-            <p>Mia Fine</p>
-          </div>
-          <div className="col-md-4">
-            <h4>4-Pack I-Cubs Tickets</h4>
-            <p>Emily Brown</p>
-          </div>
-        </div>
-
-        <div className="row">
-          <div className="col-md-12">
-            <h3>Spirit of DMT Award</h3>
-            <p>Sue Behrens-Hudson</p>
-          </div>
-        </div>
-
-        <div className="row">
-          <h3>Judge's Choice</h3>
-          <div className="col-md-offset-2 col-md-4">
-            <p>Brianna Moore</p>
-          </div>
-          <div className="col-md-4">
-            <p>Abby Heinrichs</p>
-          </div>
-          <div className="col-md-offset-2 col-md-4">
-            <p>Becky Russell</p>
-          </div>
-          <div className="col-md-4">
-            <p>Paris Mulder</p>
-          </div>
-        </div>
-
-        <div className="row">
-          <div className="col-md-6">
-            <h3>Best Casual Wear</h3>
-            <p>Sheyanne Ackerson</p>
-          </div>
-          <div className="col-md-6">
-            <h3>Best Formal Wear</h3>
-            <p>Elizabeth Esdohr</p>
-          </div>
-        </div>
-
-        <div className="row">
-          <div className="col-md-6">
-            <h3>Miss Congeniality</h3>
-            <p>Emily Brown</p>
-          </div>
-          <div className="col-md-6">
-            <h3>Miss Photogenic</h3>
-            <p>Alivia Romesburg</p>
-          </div>
-        </div>
-
-        <div className="row">
-          <div className="col-md-12">
-            <h3>People's Choice</h3>
-            <p>Maddie Farrell</p>
-          </div>
-        </div>
-
-        <div className="row">
-          <div className="col-md-6">
-            <h3>Little Miss Dreams Made True</h3>
-            <p>Leighton Buckley</p>
-          </div>
-          <div className="col-md-6">
-            <h3>First Runner Up</h3>
-            <p>Gracie Kobold</p>
-          </div>
-        </div>
-
-        <div className="row">
-          <div className="col-md-6">
-            <h3>Junior Miss Dreams Made True</h3>
-            <p>Audrey Page</p>
-          </div>
-          <div className="col-md-6">
-            <h3>First Runner Up</h3>
-            <p>Mia Fine</p>
-          </div>
-        </div>
-
-        <div className="row">
-          <div className="col-md-6">
-            <h3>Teen Miss Dreams Made True</h3>
-            <p>Furaha Vicent</p>
-          </div>
-          <div className="col-md-6">
-            <h3>First Runner Up</h3>
-            <p>Rachel Miller</p>
-          </div>
-        </div>
-
-        <div className="row">
-          <div className="col-md-6">
-            <h3>Miss Dreams Made True</h3>
-            <p>Olivia Siepker</p>
-          </div>
-          <div className="col-md-6">
-            <h3>First Runner Up</h3>
-            <p>Christina Lampe</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <Section sectionTitle='2019 Winners' sectionClassName='winners'>
+    <WinnerSection sectionTitle='Drawings' winners={results.drawings} />
+    <WinnerSection sectionTitle='Spirit of DMT' winners={results.spirit} />
+    <WinnerSection sectionTitle="Judge's Choice" winners={results.judges} />
+    <WinnerSection
+      sectionTitle='Little Miss Dreams Made True'
+      winners={results.littleMiss}
+    />
+    <WinnerSection
+      sectionTitle='Junior Miss Dreams Made True'
+      winners={results.juniorMiss}
+    />
+    <WinnerSection
+      sectionTitle='Teen Miss Dreams Made True'
+      winners={results.teenMiss}
+    />
+    <WinnerSection
+      sectionTitle='Miss Dreams Made True'
+      winners={results.miss}
+    />
+  </Section>
 );
 export default Winners;
